@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("add log 1")
+        print("add log 2")
+        print("add log 3")
+        print("add log 4")
     }
 
 
