@@ -12,6 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("xxx")
+        let str = "jbksajkfdsbjkfdjksdfjsdf"
+        str.forEachLoggerChunk({
+            NSLog("%@", "\($0)")
+        })
     }
 
 
