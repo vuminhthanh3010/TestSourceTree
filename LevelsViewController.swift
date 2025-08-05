@@ -284,22 +284,22 @@ class LevelCell: UICollectionViewCell {
         return view
     }()
     
-    private let movesContainer: UIView = {
+    private let blendMoveContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.97, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 0.1)
         view.layer.cornerRadius = 12
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 0.3).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private let blendMoveView: UIView = {
+    private let splitMoveContainer: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let splitMoveView: UIView = {
-        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.8, green: 0.2, blue: 0.4, alpha: 0.1)
+        view.layer.cornerRadius = 12
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor(red: 0.8, green: 0.2, blue: 0.4, alpha: 0.3).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -381,13 +381,12 @@ class LevelCell: UICollectionViewCell {
         cardView.addSubview(levelNumberView)
         levelNumberView.addSubview(levelLabel)
         cardView.addSubview(difficultyIndicator)
-        cardView.addSubview(movesContainer)
-        movesContainer.addSubview(blendMoveView)
-        movesContainer.addSubview(splitMoveView)
-        blendMoveView.addSubview(blendLabel)
-        blendMoveView.addSubview(blendValueLabel)
-        splitMoveView.addSubview(splitLabel)
-        splitMoveView.addSubview(splitValueLabel)
+        cardView.addSubview(blendMoveContainer)
+        cardView.addSubview(splitMoveContainer)
+        blendMoveContainer.addSubview(blendLabel)
+        blendMoveContainer.addSubview(blendValueLabel)
+        splitMoveContainer.addSubview(splitLabel)
+        splitMoveContainer.addSubview(splitValueLabel)
         cardView.addSubview(statusIndicator)
         addSubview(lockOverlay)
         lockOverlay.addSubview(lockIcon)
@@ -411,32 +410,27 @@ class LevelCell: UICollectionViewCell {
             difficultyIndicator.widthAnchor.constraint(equalToConstant: 6),
             difficultyIndicator.heightAnchor.constraint(equalToConstant: 20),
             
-            movesContainer.topAnchor.constraint(equalTo: levelNumberView.bottomAnchor, constant: 15),
-            movesContainer.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 12),
-            movesContainer.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -12),
-            movesContainer.heightAnchor.constraint(equalToConstant: 70),
+            blendMoveContainer.topAnchor.constraint(equalTo: levelNumberView.bottomAnchor, constant: 15),
+            blendMoveContainer.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 12),
+            blendMoveContainer.trailingAnchor.constraint(equalTo: cardView.centerXAnchor, constant: -5),
+            blendMoveContainer.heightAnchor.constraint(equalToConstant: 55),
             
-            blendMoveView.topAnchor.constraint(equalTo: movesContainer.topAnchor),
-            blendMoveView.leadingAnchor.constraint(equalTo: movesContainer.leadingAnchor),
-            blendMoveView.trailingAnchor.constraint(equalTo: movesContainer.centerXAnchor, constant: -5),
-            blendMoveView.bottomAnchor.constraint(equalTo: movesContainer.bottomAnchor),
+            splitMoveContainer.topAnchor.constraint(equalTo: levelNumberView.bottomAnchor, constant: 15),
+            splitMoveContainer.leadingAnchor.constraint(equalTo: cardView.centerXAnchor, constant: 5),
+            splitMoveContainer.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -12),
+            splitMoveContainer.heightAnchor.constraint(equalToConstant: 55),
             
-            splitMoveView.topAnchor.constraint(equalTo: movesContainer.topAnchor),
-            splitMoveView.leadingAnchor.constraint(equalTo: movesContainer.centerXAnchor, constant: 5),
-            splitMoveView.trailingAnchor.constraint(equalTo: movesContainer.trailingAnchor),
-            splitMoveView.bottomAnchor.constraint(equalTo: movesContainer.bottomAnchor),
-            
-            blendLabel.topAnchor.constraint(equalTo: blendMoveView.topAnchor, constant: 8),
-            blendLabel.centerXAnchor.constraint(equalTo: blendMoveView.centerXAnchor),
+            blendLabel.topAnchor.constraint(equalTo: blendMoveContainer.topAnchor, constant: 8),
+            blendLabel.centerXAnchor.constraint(equalTo: blendMoveContainer.centerXAnchor),
             
             blendValueLabel.topAnchor.constraint(equalTo: blendLabel.bottomAnchor, constant: 5),
-            blendValueLabel.centerXAnchor.constraint(equalTo: blendMoveView.centerXAnchor),
+            blendValueLabel.centerXAnchor.constraint(equalTo: blendMoveContainer.centerXAnchor),
             
-            splitLabel.topAnchor.constraint(equalTo: splitMoveView.topAnchor, constant: 8),
-            splitLabel.centerXAnchor.constraint(equalTo: splitMoveView.centerXAnchor),
+            splitLabel.topAnchor.constraint(equalTo: splitMoveContainer.topAnchor, constant: 8),
+            splitLabel.centerXAnchor.constraint(equalTo: splitMoveContainer.centerXAnchor),
             
             splitValueLabel.topAnchor.constraint(equalTo: splitLabel.bottomAnchor, constant: 5),
-            splitValueLabel.centerXAnchor.constraint(equalTo: splitMoveView.centerXAnchor),
+            splitValueLabel.centerXAnchor.constraint(equalTo: splitMoveContainer.centerXAnchor),
             
             statusIndicator.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -12),
             statusIndicator.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -12),
