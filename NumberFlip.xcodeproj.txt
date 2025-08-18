@@ -1,0 +1,77 @@
+# Number Flip Xcode Project Setup Instructions
+
+## Creating the Xcode Project
+
+1. **Open Xcode**
+2. **Create New Project**:
+   - Choose "iOS" > "App"
+   - Product Name: "Number Flip"
+   - Team: Select your development team
+   - Organization Identifier: com.yourname.numberflip
+   - Language: Swift
+   - Interface: UIKit (NOT SwiftUI)
+   - Use Core Data: No
+   - Include Tests: Yes (optional)
+
+3. **Project Configuration**:
+   - Deployment Target: iOS 13.0
+   - Device: iPhone (Universal)
+   - Orientation: Portrait, Landscape Left, Landscape Right
+
+4. **Add Source Files**:
+   Copy all .swift files from this directory to your Xcode project:
+   - AppDelegate.swift
+   - SceneDelegate.swift
+   - GradientHelper.swift
+   - GameModel.swift
+   - MainMenuViewController.swift
+   - GameViewController.swift
+   - GameBoardView.swift
+   - SettingsViewController.swift
+   - HowToPlayViewController.swift
+
+5. **Update Info.plist**:
+   Replace the generated Info.plist with the one provided
+
+6. **Framework Dependencies**:
+   The project uses only standard iOS frameworks:
+   - UIKit (included by default)
+   - Foundation (included by default)
+   - StoreKit (for app rating functionality)
+
+## Build Settings
+
+### Required Settings:
+- **Swift Language Version**: Swift 5
+- **iOS Deployment Target**: 13.0
+- **Supported Device Families**: iPhone, iPad
+- **Requires Full Screen**: NO (allows multitasking)
+
+### App Store Submission:
+- **Bundle Identifier**: Unique identifier (e.g., com.yourname.numberflip)
+- **Version**: 1.0
+- **Build Number**: 1
+- **App Icons**: Add app icons in Assets.xcassets
+- **Launch Screen**: Create a simple launch screen storyboard
+
+## Code Structure Benefits:
+- ✅ 100% programmatic UI (no Storyboards/XIBs)
+- ✅ MVC architecture with proper separation
+- ✅ Memory management with weak references
+- ✅ Proper timer cleanup in deinit
+- ✅ Thread-safe UI updates
+- ✅ Smooth animations and transitions
+- ✅ Accessibility ready
+- ✅ No external dependencies
+
+## Apple App Store Guidelines Compliance:
+- ✅ Educational content (brain training)
+- ✅ No inappropriate content
+- ✅ No gambling or random rewards
+- ✅ Clear gameplay mechanics
+- ✅ No data collection or privacy concerns
+- ✅ Family-friendly rating (4+)
+- ✅ Performance optimized
+- ✅ No crashes or memory leaks
+
+This project is ready for App Store submission after adding proper app icons and creating marketing materials.
